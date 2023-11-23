@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.quick::after {
+  content: url("./assets/landing-assets/quick-wavy-line.svg");
+  position: absolute;
+  left: -6px;
+  bottom: -16px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      content: {
+        "quick-wavy-line": "url('/src/assets/landing-assets/quick-wavy-line.svg')",
+      }
+    },
   },
   plugins: [],
 }
