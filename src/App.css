@@ -37,9 +37,13 @@
 
 .how-it-works {
   background-image: url("./assets/landing-assets/how-it-works-bg.svg");
-  
 }
-
+.footer-underline::after {
+  content: url("./assets/landing-assets/footer-underline.svg");
+  position: absolute;
+  left: -3%;
+  bottom: -18%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

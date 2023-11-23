@@ -5,6 +5,7 @@ import FeaturesComponent from '../components/Landing_components/features.compone
 import WhoWeAreComponent from '../components/Landing_components/who-we-are.component'
 import HowItWorksComponent from '../components/Landing_components/how-it-works.component'
 import FooterComponent from '../components/Landing_components/footer.component'
+import TestimonialsComponent from '../components/Landing_components/testimonials.component'
 
 export default function Landing() {
     return (
@@ -14,6 +15,7 @@ export default function Landing() {
             <FeaturesComponent />
             <WhoWeAreComponent />
             <HowItWorksComponent />
+            <TestimonialsComponent />
             <FooterComponent />
         </>
     )
