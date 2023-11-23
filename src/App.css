@@ -35,6 +35,10 @@
   bottom: -16px;
 }
 
+.how-it-works {
+  background-image: url("./assets/landing-assets/how-it-works-bg.svg");
+  
+}
 
 @keyframes App-logo-spin {
   from {

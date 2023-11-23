@@ -7,9 +7,9 @@ import {ReactComponent as FeatureColumnDivide} from '../../assets/landing-assets
 const FeaturesComponent = () => {
   return (
     <section id='features' className='relative'>
-        <div className='rounded-full bg-white absolute shadow-md w-[70%] z-10 -top-7 left-[10%]'>
-            <div className='flex gap-x-5 px-14 py-5'>
-                <div className='relative text-center feature-divide'>
+        <div className='rounded-full bg-white absolute shadow-md w-[70%] z-10 -top-7 left-[12%]'>
+            <div className='flex gap-x-5 box-border px-14 py-7'>
+                <div className='text-center px-4'>
                     <div className='feature-icon flex justify-center'>
                         <FreeMedicalInquirySVG />
                     </div>
@@ -17,7 +17,7 @@ const FeaturesComponent = () => {
                     <p className='font-normal text-sm text-[#090701]'>Take advantage of our free consultations for the first one month. No service or hidden charges.</p>
                 </div>
                 <div  className='mt-4'><FeatureColumnDivide /></div>
-                <div className='relative text-center feature-divide'>
+                <div className='text-center px-4'>
                     <div className='feature-icon flex justify-center'>
                         <HeartFeaturesSVG />
                     </div>
@@ -25,7 +25,7 @@ const FeaturesComponent = () => {
                     <p className='font-normal text-sm text-[#090701]'>We are a safe community of Qualified Doctors and Nurses invested in keeping you  whole and healthy.  </p>
                 </div>
                 <div className='mt-4'><FeatureColumnDivide /></div>
-                <div className='text-center'>
+                <div className='text-center px-4'>
                     <div className='feature-icon flex justify-center'>
                         <MessagesSVG />
                     </div>

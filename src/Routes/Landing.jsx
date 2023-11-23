@@ -3,6 +3,7 @@ import NavbarComponent from '../components/Landing_components/navbar.component'
 import HeroSectionComponent from '../components/Landing_components/hero-section.component'
 import FeaturesComponent from '../components/Landing_components/features.component'
 import WhoWeAreComponent from '../components/Landing_components/who-we-are.component'
+import HowItWorksComponent from '../components/Landing_components/how-it-works.component'
 
 export default function Landing() {
     return (
@@ -11,6 +12,7 @@ export default function Landing() {
             <HeroSectionComponent />
             <FeaturesComponent />
             <WhoWeAreComponent />
+            <HowItWorksComponent />
         </>
     )
 }
