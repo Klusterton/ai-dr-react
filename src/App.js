@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Landing from './Routes/Landing';
 import Auth from './Routes/Auth';
 import Dashboard from './Routes/Dashboard';
+import ChatBot from './Routes/ChatBot';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Route exact path='/' element={<Landing />} />
       <Route path='/auth/*' element={<Auth />} />
       <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/chat-bot' element={<ChatBot />} />
     </Routes>
   );
 }
@@ -18,4 +20,6 @@ function App() {
 //NAVIGATION ROUTES
 // /auth = SIGNUP PAGE
 // /auth/login = LOGIN PAGE
+// /auth/reset-password = RESET PASSWORD PAGE
+
 export default App;
