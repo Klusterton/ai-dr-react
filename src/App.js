@@ -11,7 +11,7 @@ function App() {
       <Route exact path='/' element={<Landing />} />
       <Route path='/auth/*' element={<Auth />} />
       <Route path='/dashboard' element={<Dashboard />} />
-      <Route path='/chat-bot' element={<ChatBot />} />
+      <Route path='/chat-bot/*' element={<ChatBot />} />
     </Routes>
   );
 }
