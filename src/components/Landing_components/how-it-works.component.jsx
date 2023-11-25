@@ -1,5 +1,7 @@
 import React from 'react';
 import {ReactComponent as ClickOnGetStartedSVG} from '../../assets/landing-assets/click-on-get-started.svg';
+import {ReactComponent as LogInSVG} from '../../assets/landing-assets/log-in-how-it-works-icon.svg';
+import {ReactComponent as ExploreSVG} from '../../assets/landing-assets/explore-how-it-works-icon.svg';
 import {ReactComponent as BgYellowSquareSVG} from '../../assets/landing-assets/bg-yellow-square.svg';
 import {ReactComponent as BgWhiteSquareSVG} from '../../assets/landing-assets/bg-white-square.svg';
 import {ReactComponent as BgWavyWhiteLineSVG} from '../../assets/landing-assets/bg-wavy-white-line.svg';
@@ -23,12 +25,12 @@ const HowItWorksComponent = () => {
           <BgWhiteSquareSVG className='absolute bottom-1 left-56'/>
           <BgWavyYellowLineSVG className='absolute left-[33%] top-[45%]'/>
           <div className='flex flex-col gap-y-4 flex-1 text-center items-center'>
-            <div><ClickOnGetStartedSVG /></div>
+            <div><LogInSVG /></div>
             <p className='text-[#090701] font-bold text-lg'>Create an account/ Login</p>
           </div>
           <BgWavyWhiteLineSVG className='absolute right-[33%] top-[30%]'/>
           <div className='flex flex-col gap-y-4 flex-1 text-center items-center'>
-            <div><ClickOnGetStartedSVG /></div>
+            <div><ExploreSVG /></div>
             <p className='text-[#090701] font-bold text-lg px-12'>Explore dashboard to make Inquiry or consult a Doctor</p>
           </div>
           <BgYellowSquareSVG className='absolute bottom-16 right-24'/>
