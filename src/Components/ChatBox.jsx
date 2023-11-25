@@ -24,7 +24,7 @@ export default function ChatBox({ chat }) {
     }, [])
 
     return (
-        <div className='h-full w-full mx-auto max-w-[53rem] pt-10'>
+        <div className='phone:h-full h-[500px] overflow-y-scroll w-full mx-auto max-w-[53rem] pt-7 mb-7 phone:mb-0 phone:pt-10'>
             <div className='flex flex-col gap-8 w-full h-full'>
                 {/* MY CHAT */}
                 <div className='flex flex-col gap-[10px]'>
