@@ -9,19 +9,23 @@ import { ChatContext } from '../Context/ChatContext'
 import { CgSpinner } from 'react-icons/cg'
 
 export default function ChatPage({hamburger, setHamburger}) {
-    const { loading, initializeMedix, typing, conversateWithMedix, otherMedix, medix, conversation } = useContext(ChatContext);
+    const { loading, initializeMedix, conversateWithMedix } = useContext(ChatContext);
+    const data = localStorage.getItem('Medix_data')
+    const MedixData = JSON.parse(data);
     const [chat, setChat] = useState('');
     const [otherChat, setOtherChat] = useState('')
 
     const sendMessage = () => {
         if (chat.trim() !== '') {
             initializeMedix(chat)
+            setChat('')
         }
     }
 
     const sendOtherChat = () => {
         if (otherChat.trim() !== '') {
             conversateWithMedix(otherChat)
+            setOtherChat('')
         }
     }
     
@@ -30,7 +34,7 @@ export default function ChatPage({hamburger, setHamburger}) {
             {hamburger && <Hamburger setHamburger={setHamburger}/>}
             <div className='flex-1 flex flex-col h-full justify-center w-full'>
                 <div className='mids:overflow-hidden w-full'>
-                    {!conversation && (
+                    {(!MedixData || MedixData?.length <= 0) && (
                         <div className='h-full w-full flex flex-col mids:gap-[91px] phone:gap-[50px] gap-[25px] justify-center items-center'>
                             <div className='flex'>
                                 <div className='phone:w-[171px] w-[140px] h-[58px] absolute'>
@@ -43,14 +47,14 @@ export default function ChatPage({hamburger, setHamburger}) {
                             </div>
                         </div>
                     )}
-                    {conversation && <ChatBox typing={typing} otherAi={otherMedix} Ai={medix} otherChat={otherChat} chat={chat}/>}
+                    {(MedixData && MedixData?.length > 0) && <ChatBox typing={loading} Ai={MedixData}/>}
                 </div>
                 <div className='flex-1 flex items-end pl-2 w-[calc(100%-.5rem)]'>
                     <div className='flex mids:last:mb-6 mx-auto w-full phone:max-w-[53rem]'>
                         <div className='relative flex gap-6 h-full flex-1 items-stretch flex-col'>
-                            {!conversation && <Suggestions setChat={setChat} />}
+                            {(!MedixData || MedixData?.length <= 0) && <Suggestions setChat={setChat} />}
                             <div className='flex w-full items-center py-3 px-4 border-[0.5px] border-Dark_Grey rounded-[20px]'>
-                                {!conversation ? (
+                                {(!MedixData || MedixData?.length <= 0)? (
                                     <input
                                         value={chat}
                                         onChange={(e) => {
@@ -68,8 +72,8 @@ export default function ChatPage({hamburger, setHamburger}) {
                                         placeholder='What’s your complain today?'
                                     />
                                 )}
-                                <div className='w-8 h-8 cursor-pointer' onClick={otherChat ? sendOtherChat : sendMessage}>
-                                    {(loading || typing) ? (<CgSpinner className='animate-spin text-[32px]'/>) : (
+                                <div className='w-8 h-8 cursor-pointer' onClick={chat ? sendMessage : sendOtherChat}>
+                                    {loading ? (<CgSpinner className='animate-spin text-[32px]'/>) : (
                                         <img src={Send} alt='send' />
                                     )}
                                 </div>
