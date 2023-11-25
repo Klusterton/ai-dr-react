@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Logo from '../Assets/img/logo.png'
-import User from '../Assets/img/user.png'
+import User from '../Assets/img/avatar.png'
 import { Logout } from "../Assets/svg";
 
 export default function Hamburger({setHamburger}){
@@ -38,7 +38,7 @@ export default function Hamburger({setHamburger}){
                     </ul>
                     <div className="mt-[16px] flex flex-col gap-4">
                         <div className="w-full py-[10px] flex gap-2 items-center cursor-pointer text-[16px] font-normal" >
-                            <img src={User} alt='user' />
+                            <img src={User} alt='user' className="w-[30px] h-[30px] object-contain rounded-full" />
                             <p>Test User</p>
                         </div>
                         <div className="w-full py-[10px] flex gap-[14px] items-center cursor-pointer text-[16px] font-normal" >
