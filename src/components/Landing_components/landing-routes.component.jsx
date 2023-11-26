@@ -5,7 +5,7 @@ import Landing from '../../Routes/Landing';
 const LandingRoutes = () => {
   return (
     <Routes>
-        <Route path='' element={<Landing />} />
+        <Route path='*' element={<Landing />} />
     </Routes>
   )
 }
