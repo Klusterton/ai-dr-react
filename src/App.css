@@ -33,8 +33,8 @@ body {
 .footer-underline::after {
   content: url("./Assets/landing-assets/footer-underline.svg");
   position: absolute;
-  left: -3%;
-  bottom: -18%;
+  left: 0;
+  bottom: -.5rem;
 }
 
 .sign-up-page-underline::after, .log-in-page-underline::after {

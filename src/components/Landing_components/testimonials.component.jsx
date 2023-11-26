@@ -4,7 +4,7 @@ import {ReactComponent as RightCarouselSVG} from '../../Assets/landing-assets/ri
 
 const TestimonialsComponent = () => {
   return (
-    <section className='mx-[7%] flex px-5'>
+    <section className='mx-[7%] flex py-14'>
         <div className='w-[20%]'>
             <h6 className='text-lg font-bold text-[#FBC507]'>TESTIMONIALS</h6>
             <p className='font-bold text-4xl text-[#090701]'>Interesting Customer Stories</p>

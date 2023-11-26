@@ -15,23 +15,23 @@ const HowItWorksComponent = () => {
           <h3 className='text-[#067A50] text-xl text-center font-bold'>HOW IT WORKS</h3>
           <p className='text-[#090701] text-4xl font-bold text-center'>3 Simple and Easy Steps</p>
         </div>
-        <div className='flex justify-between'>
-          <BgYellowSquareSVG className='absolute top-8 left-56'/>
-          <BgWhiteSquareSVG className='absolute top-1 right-96'/>
-          <div className='flex flex-col gap-y-4 flex-1 text-center items-center'>
+        <div className='flex flex-row justify-between flex-wrap'>
+          <BgYellowSquareSVG className='absolute top-8 left-[2%] mids:left-56'/>
+          <BgWhiteSquareSVG className='absolute top-1 right-[3%] mids:right-96'/>
+          <div className='flex flex-col gap-y-4 flex-1 text-center items-center basis-44'>
             <div><ClickOnGetStartedSVG /></div>
-            <p className='text-[#090701] font-bold text-lg'>Click on Get Started</p>
+            <p className='text-[#090701] font-bold text-base mids:text-lg'>Click on Get Started</p>
           </div>
-          <BgWhiteSquareSVG className='absolute bottom-1 left-56'/>
-          <BgWavyYellowLineSVG className='absolute left-[33%] top-[45%]'/>
-          <div className='flex flex-col gap-y-4 flex-1 text-center items-center'>
+          <BgWhiteSquareSVG className='absolute bottom-1 left-[2%] mids:left-56'/>
+          <BgWavyYellowLineSVG className='absolute hidden top-[45%] desktop:inline-block mids:left-[33%]'/>
+          <div className='flex flex-col gap-y-4 flex-1 text-center items-center basis-44'>
             <div><LogInSVG /></div>
-            <p className='text-[#090701] font-bold text-lg'>Create an account/ Login</p>
+            <p className='text-[#090701] font-bold text-base mids:text-lg'>Create an account/ Login</p>
           </div>
           <BgWavyWhiteLineSVG className='absolute right-[33%] top-[30%]'/>
-          <div className='flex flex-col gap-y-4 flex-1 text-center items-center'>
+          <div className='flex flex-col gap-y-4 flex-1 text-center items-center basis-44'>
             <div><ExploreSVG /></div>
-            <p className='text-[#090701] font-bold text-lg px-12'>Explore dashboard to make Inquiry or consult a Doctor</p>
+            <p className='text-[#090701] font-bold text-base mids:text-lg px-4'>Explore dashboard to make Inquiry or consult a Doctor</p>
           </div>
           <BgYellowSquareSVG className='absolute bottom-16 right-24'/>
         </div>
