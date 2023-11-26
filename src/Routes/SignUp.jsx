@@ -9,7 +9,7 @@ export default function SignUp() {
     return (
         <>
             <div className='flex'>
-                <div className='flex-1 min-h-screen bg-[#067A50] bg-[url("../src/Assets/SignUp-LogIn_assets/login-img.png")] bg-cover flex justify-center items-center'>
+                <div className='flex-1 min-h-screen bg-[#067A50] bg-[url("../src/Assets/SignUp-LogIn_assets/login-img.png")] bg-cover hidden justify-center items-center phone:flex'>
                     <div className='h-[70%] flex flex-col justify-between'>
                         {/* Welcome message */}
                         <div className='flex flex-col items-center justify-center w-[50%] mx-auto gap-y-8'>
@@ -29,7 +29,7 @@ export default function SignUp() {
                 </div>
                 <div className='flex-1 min-h-screen flex justify-center items-center'>
                     <div className='h-[65%] w-[70%] mx-auto'>
-                        <div className='flex flex-row justify-between w-[50%] mb-3'>
+                        <div className='flex flex-row justify-between mb-3 mids:w-[50%]'>
                             <h5 className='relative sign-up-page-underline text-2xl font-bold text-[#067A50]'>Register</h5>
                             <Link to="login" className='relative sign-up-page-underline flex justify-center items-center text-[#067A50]'>Log In</Link>
                         </div>
