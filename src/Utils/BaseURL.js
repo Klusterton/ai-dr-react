@@ -1,0 +1,1 @@
+export const MEDIX_BASE_URL = 'https://ai-dr-nodejs.onrender.com'
