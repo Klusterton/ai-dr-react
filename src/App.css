@@ -44,6 +44,19 @@
   left: -3%;
   bottom: -18%;
 }
+
+.sign-up-page-underline::after, .log-in-page-underline::after {
+  content: "";
+  border: 1px solid #C9E1D8;
+  position: absolute;
+  width: 90%;
+  bottom: -3px;
+  left: 5%;
+}
+
+.log-in-page-underline:first-of-type:after {
+  bottom: 4px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
