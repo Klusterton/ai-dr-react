@@ -1,9 +1,9 @@
 import React from 'react';
-import {ReactComponent as HeroImg} from '../../assets/landing-assets/hero-img.svg';
+import HeroImg from '../../Assets/landing-assets/doctor-smiling.png';
 
 const HeroSectionComponent = () => {
   return (
-    <section className='bg-gradient-to-br from-[#067A50] to-[#07FFA6] py-3'>
+    <section className='bg-gradient-to-br from-[#067A50] to-[#07FFA6] py-3 max-h-[100%] overflow-hidden'>
         <div className='flex mx-[7%]'>
             <div className='flex flex-col basis-1/2 py-4 gap-y-5'>
                 <div className='flex flex-col gap-y-6'>
@@ -17,8 +17,8 @@ const HeroSectionComponent = () => {
                     <button className='bg-[#FBC507] rounded-full px-4 py-2 text-[#F4F9F6] text-l font-bold'>Get Started for free</button>
                 </div>
             </div>
-            <div id='hero-img' className='relative -z-0 basis-1/2'>
-                <HeroImg className='w-full'/>
+            <div id='hero-img' className='relative h-full -z-0 basis-1/2'>
+                <img src={HeroImg} className='w-full h-full' alt='hero'/>
             </div>
         </div>
     </section>

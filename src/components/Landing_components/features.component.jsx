@@ -1,8 +1,8 @@
 import React from 'react';
-import {ReactComponent as FreeMedicalInquirySVG} from '../../assets/landing-assets/free-medical-inquiry.svg';
-import {ReactComponent as HeartFeaturesSVG} from '../../assets/landing-assets/heart-features.svg';
-import {ReactComponent as MessagesSVG} from '../../assets/landing-assets/messages-icon-features.svg';
-import {ReactComponent as FeatureColumnDivide} from '../../assets/landing-assets/feature-column-divide.svg';
+import {ReactComponent as FreeMedicalInquirySVG} from '../../Assets/landing-assets/free-medical-inquiry.svg';
+import {ReactComponent as HeartFeaturesSVG} from '../../Assets/landing-assets/heart-features.svg';
+import {ReactComponent as MessagesSVG} from '../../Assets/landing-assets/messages-icon-features.svg';
+import {ReactComponent as FeatureColumnDivide} from '../../Assets/landing-assets/feature-column-divide.svg';
 
 const FeaturesComponent = () => {
   return (

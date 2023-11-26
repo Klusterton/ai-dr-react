@@ -1,8 +1,8 @@
 import React from 'react';
-import {ReactComponent as SignUpLogo} from '../assets/SignUp-LogIn_assets/sign-up-logo.svg';
-import {ReactComponent as GoogleBtn} from '../assets/SignUp-LogIn_assets/google-button.svg';
-import {ReactComponent as FacebookBtn} from '../assets/SignUp-LogIn_assets/facebook-button.svg';
-import {ReactComponent as AppleBtn} from '../assets/SignUp-LogIn_assets/apple-button.svg';
+import {ReactComponent as SignUpLogo} from '../Assets/SignUp-LogIn_assets/sign-up-logo.svg';
+import {ReactComponent as GoogleBtn} from '../Assets/SignUp-LogIn_assets/google-button.svg';
+import {ReactComponent as FacebookBtn} from '../Assets/SignUp-LogIn_assets/facebook-button.svg';
+import {ReactComponent as AppleBtn} from '../Assets/SignUp-LogIn_assets/apple-button.svg';
 import { Link } from 'react-router-dom';
 
 export default function SignUp() {

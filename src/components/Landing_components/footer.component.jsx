@@ -1,10 +1,10 @@
 import React from 'react';
-import {ReactComponent as Logo} from '../../assets/landing-assets/navbar-logo.svg';
-import {ReactComponent as EmailSVG} from '../../assets/landing-assets/email-icon.svg';
-import {ReactComponent as LocationSVG} from '../../assets/landing-assets/location-icon.svg';
-import {ReactComponent as FacebookSVG} from '../../assets/landing-assets/facebook-icon-footer.svg';
-import {ReactComponent as InstagramSVG} from '../../assets/landing-assets/instagram-icon-footer.svg';
-import {ReactComponent as TwitterSVG} from '../../assets/landing-assets/x-icon-footer.svg';
+import {ReactComponent as Logo} from '../../Assets/landing-assets/navbar-logo.svg';
+import {ReactComponent as EmailSVG} from '../../Assets/landing-assets/email-icon.svg';
+import {ReactComponent as LocationSVG} from '../../Assets/landing-assets/location-icon.svg';
+import {ReactComponent as FacebookSVG} from '../../Assets/landing-assets/facebook-icon-footer.svg';
+import {ReactComponent as InstagramSVG} from '../../Assets/landing-assets/instagram-icon-footer.svg';
+import {ReactComponent as TwitterSVG} from '../../Assets/landing-assets/x-icon-footer.svg';
 import { Link } from 'react-router-dom';
 
 const FooterComponent = () => {

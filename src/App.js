@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Auth from './Routes/Auth';
 import Dashboard from './Routes/Dashboard';
 import ChatBot from './Routes/ChatBot';
-import LandingRoutes from './components/Landing_components/landing-routes.component';
+import LandingRoutes from './Components/Landing_components/landing-routes.component';
 
 function App() {
   return (

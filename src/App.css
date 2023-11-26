@@ -21,17 +21,17 @@ body {
 }
 
 .quick::after {
-  content: url("./assets/landing-assets/quick-wavy-line.svg");
+  content: url("./Assets/landing-assets/quick-wavy-line.svg");
   position: absolute;
   left: -6px;
   bottom: -16px;
 }
 
 .how-it-works {
-  background-image: url("./assets/landing-assets/how-it-works-bg.svg");
+  background-image: url("./Assets/landing-assets/how-it-works-bg.svg");
 }
 .footer-underline::after {
-  content: url("./assets/landing-assets/footer-underline.svg");
+  content: url("./Assets/landing-assets/footer-underline.svg");
   position: absolute;
   left: -3%;
   bottom: -18%;

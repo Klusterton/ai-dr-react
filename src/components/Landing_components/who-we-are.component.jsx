@@ -1,10 +1,10 @@
 import React from 'react';
-import {ReactComponent as CheckMarkSVG} from '../../assets/landing-assets/who-we-are-checkmark.svg';
-import {ReactComponent as HeroImgSVG} from '../../assets/landing-assets/who-we-are-img.svg';
+import {ReactComponent as CheckMarkSVG} from '../../Assets/landing-assets/who-we-are-checkmark.svg';
+import {ReactComponent as HeroImgSVG} from '../../Assets/landing-assets/who-we-are-img.svg';
 
 const WhoWeAreComponent = () => {
   return (
-    <section className='mx-[7%] mt-[17%] pb-16 flex'>
+    <section className='mx-[7%] mt-[23%] pb-16 flex'>
         <div className='flex flex-col flex-1 gap-y-7'>
             <div className='flex flex-col gap-y-4 w-[68%]'>
                 <h6 className='font-bold text-xl text-[#FBC507]'>WHO WE ARE</h6>

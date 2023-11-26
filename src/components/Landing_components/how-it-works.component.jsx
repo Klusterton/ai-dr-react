@@ -1,11 +1,11 @@
 import React from 'react';
-import {ReactComponent as ClickOnGetStartedSVG} from '../../assets/landing-assets/click-on-get-started.svg';
-import {ReactComponent as LogInSVG} from '../../assets/landing-assets/log-in-how-it-works-icon.svg';
-import {ReactComponent as ExploreSVG} from '../../assets/landing-assets/explore-how-it-works-icon.svg';
-import {ReactComponent as BgYellowSquareSVG} from '../../assets/landing-assets/bg-yellow-square.svg';
-import {ReactComponent as BgWhiteSquareSVG} from '../../assets/landing-assets/bg-white-square.svg';
-import {ReactComponent as BgWavyWhiteLineSVG} from '../../assets/landing-assets/bg-wavy-white-line.svg';
-import {ReactComponent as BgWavyYellowLineSVG} from '../../assets/landing-assets/bg-wavy-yellow-line.svg';
+import {ReactComponent as ClickOnGetStartedSVG} from '../../Assets/landing-assets/click-on-get-started.svg';
+import {ReactComponent as LogInSVG} from '../../Assets/landing-assets/log-in-how-it-works-icon.svg';
+import {ReactComponent as ExploreSVG} from '../../Assets/landing-assets/explore-how-it-works-icon.svg';
+import {ReactComponent as BgYellowSquareSVG} from '../../Assets/landing-assets/bg-yellow-square.svg';
+import {ReactComponent as BgWhiteSquareSVG} from '../../Assets/landing-assets/bg-white-square.svg';
+import {ReactComponent as BgWavyWhiteLineSVG} from '../../Assets/landing-assets/bg-wavy-white-line.svg';
+import {ReactComponent as BgWavyYellowLineSVG} from '../../Assets/landing-assets/bg-wavy-yellow-line.svg';
 
 const HowItWorksComponent = () => {
   return (

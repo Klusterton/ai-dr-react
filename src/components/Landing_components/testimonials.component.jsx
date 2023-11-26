@@ -1,6 +1,6 @@
 import React from 'react';
-import {ReactComponent as LeftCarouselSVG} from '../../assets/landing-assets/left-carousel-button.svg';
-import {ReactComponent as RightCarouselSVG} from '../../assets/landing-assets/right-carousel-button.svg';
+import {ReactComponent as LeftCarouselSVG} from '../../Assets/landing-assets/left-carousel-button.svg';
+import {ReactComponent as RightCarouselSVG} from '../../Assets/landing-assets/right-carousel-button.svg';
 
 const TestimonialsComponent = () => {
   return (
