@@ -1,47 +1,64 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import DashboardLayout from '../Layout/DashboardLayout'
 import Suggestions from '../Components/Suggestions'
 import Send from '../Assets/img/send.png'
 import Ai from '../Assets/img/ai.png'
 import ChatBox from '../Components/ChatBox'
+import Hamburger from '../Components/Hamburger'
+import { ChatContext } from '../Context/ChatContext'
+import { CgSpinner } from 'react-icons/cg'
 
-export default function ChatPage() {
+export default function ChatPage({hamburger, setHamburger}) {
+    const { loading, initializeMedix, conversateWithMedix } = useContext(ChatContext);
+    const data = localStorage.getItem('Medix_data')
+    const MedixData = JSON.parse(data);
     const [chat, setChat] = useState('');
-    const [message, setMessage] = useState('');
-    
-    const handleSendMessage = () => {
-        setChat(message); 
-    };
+    const [otherChat, setOtherChat] = useState('')
+
+    const sendMessage = () => {
+        if (chat.trim() !== '') {
+            initializeMedix(chat)
+            setChat('')
+        }
+    }
+
+    const sendOtherChat = () => {
+        if (otherChat.trim() !== '') {
+            conversateWithMedix(otherChat)
+            setOtherChat('')
+        }
+    }
     
     return (
-        <DashboardLayout>
-            <div className='flex flex-col h-full justify-center w-full'>
-                <div className='flex-1 overflow-hidden w-full'>
-                    {chat?.length <= 0 && (
-                        <div className='h-full w-full flex flex-col gap-[91px] justify-center items-center'>
+        <DashboardLayout setHamburger={setHamburger}>
+            {hamburger && <Hamburger setHamburger={setHamburger}/>}
+            <div className='flex-1 flex flex-col h-full justify-center w-full'>
+                <div className='mids:overflow-hidden w-full'>
+                    {(!MedixData || MedixData?.length <= 0) && (
+                        <div className='h-full w-full flex flex-col mids:gap-[91px] phone:gap-[50px] gap-[25px] justify-center items-center'>
                             <div className='flex'>
-                                <div className='w-[171px] h-[58px] absolute'>
-                                    <img src={Ai} alt='medix' className='object-contain' />
+                                <div className='phone:w-[171px] w-[140px] h-[58px] absolute'>
+                                    <img src={Ai} alt='medix' className='object-contain -ml-5 phone:ml-0 -mt-[57px] phone:mt-0 animate__animated animate__pulse animate__infinite animate__slow' />
                                 </div>
-                                <h1 className='text-[30px] font-medium text-center w-[399px]'>I am Medix! How can I help you today?</h1>
+                                <h1 className='phone:text-[30px] text-[25px] font-medium text-center phone:w-[399px]'>I am Medix! <br className='phone:hidden' />How can I help you today?</h1>
                             </div>
                             <div className='py-1 px-2 rounded-lg bg-green-200'>
-                                <p className='text-green-600 text-sm font-normal'>Got some common fever? Click to see the right medication</p>
+                                <p className='text-green-600 text-sm font-normal text-center'>Got some common fever? Click to see the right medication</p>
                             </div>
                         </div>
                     )}
-                    {(chat?.length > 0) && <ChatBox chat={chat}/>}
+                    {(MedixData && MedixData?.length > 0) && <ChatBox typing={loading} Ai={MedixData}/>}
                 </div>
-                <div className='pl-2 w-[calc(100%-.5rem)]'>
-                    <div className='flex last:mb-6 mx-auto max-w-[53rem]'>
+                <div className='flex-1 flex items-end pl-2 w-[calc(100%-.5rem)]'>
+                    <div className='flex mids:last:mb-6 mx-auto w-full phone:max-w-[53rem]'>
                         <div className='relative flex gap-6 h-full flex-1 items-stretch flex-col'>
-                            {(chat?.length <= 0) && <Suggestions setChat={setChat} />}
+                            {(!MedixData || MedixData?.length <= 0) && <Suggestions setChat={setChat} />}
                             <div className='flex w-full items-center py-3 px-4 border-[0.5px] border-Dark_Grey rounded-[20px]'>
-                                {(chat?.length <= 0) ? (
+                                {(!MedixData || MedixData?.length <= 0)? (
                                     <input
-                                        value={message}
+                                        value={chat}
                                         onChange={(e) => {
-                                            setMessage(e.target.value); 
+                                            setChat(e.target.value); 
                                             console.log(e.target.value)
                                         }}
                                         className='flex-1 focus:outline-none border-0 bg-transparent' 
@@ -49,14 +66,16 @@ export default function ChatPage() {
                                     />
                                 ): (
                                     <input
-                                        value={''}
-                                        // onChange={(e) => setChat(e.target.value)}
+                                        value={otherChat}
+                                        onChange={(e) => setOtherChat(e.target.value)}
                                         className='flex-1 focus:outline-none border-0 bg-transparent' 
                                         placeholder='What’s your complain today?'
                                     />
                                 )}
-                                <div className='w-8 h-8 cursor-pointer' onClick={handleSendMessage}>
-                                    <img src={Send} alt='send' />
+                                <div className='w-8 h-8 cursor-pointer' onClick={chat ? sendMessage : sendOtherChat}>
+                                    {loading ? (<CgSpinner className='animate-spin text-[32px]'/>) : (
+                                        <img src={Send} alt='send' />
+                                    )}
                                 </div>
                             </div>
                         </div>
