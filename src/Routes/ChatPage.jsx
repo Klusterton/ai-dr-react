@@ -9,8 +9,9 @@ import { ChatContext } from '../Context/ChatContext'
 import { CgSpinner } from 'react-icons/cg'
 
 export default function ChatPage({hamburger, setHamburger}) {
-    const { loading, initializeMedix, conversateWithMedix } = useContext(ChatContext);
+    const { loading, initializeMedix, conversateWithMedix, getMedixChat } = useContext(ChatContext);
     const data = localStorage.getItem('Medix_data')
+    const id = localStorage.getItem('Medix_AI')
     const MedixData = JSON.parse(data);
     const [chat, setChat] = useState('');
     const [otherChat, setOtherChat] = useState('')
@@ -42,11 +43,12 @@ export default function ChatPage({hamburger, setHamburger}) {
                                 </div>
                                 <h1 className='phone:text-[30px] text-[25px] font-medium text-center phone:w-[399px]'>I am Medix! <br className='phone:hidden' />How can I help you today?</h1>
                             </div>
-                            <div className='py-1 px-2 rounded-lg bg-green-200'>
+                            <div onClick={() => {getMedixChat(id); console.log('update')}} className='py-1 px-2 rounded-lg bg-green-200'>
                                 <p className='text-green-600 text-sm font-normal text-center'>Got some common fever? Click to see the right medication</p>
                             </div>
                         </div>
                     )}
+                    {MedixData === null && (<button >Retry</button>)}
                     {(MedixData && MedixData?.length > 0) && <ChatBox typing={loading} Ai={MedixData}/>}
                 </div>
                 <div className='flex-1 flex items-end pl-2 w-[calc(100%-.5rem)]'>
@@ -57,10 +59,9 @@ export default function ChatPage({hamburger, setHamburger}) {
                                 {(!MedixData || MedixData?.length <= 0)? (
                                     <input
                                         value={chat}
-                                        onChange={(e) => {
-                                            setChat(e.target.value); 
-                                            console.log(e.target.value)
-                                        }}
+                                        onChange={(e => 
+                                            setChat(e.target.value)
+                                        )}
                                         className='flex-1 focus:outline-none border-0 bg-transparent' 
                                         placeholder='What’s your complain today'
                                     />

@@ -8,11 +8,32 @@ export const ChatProvider = ({ children }) => {
     const [medix, setMedix] = useState()
     const [loading, setLoading] = useState(false);
     const [conversation, setConversation] = useState(false);
+    const [messages, setMessages] = useState([]);
     const chatId = localStorage.getItem('Medix_AI');
 
+    const getLastMessage = async (data) => {
+        return data?.data?.data?.[0];
+    }
+
+    const updateMessageThread = (data) => {
+        console.log(data)
+        setMessages((_messages) => [data, ...messages])
+    }
+
     const initializeMedix = async (input) => {
+        const msg = {
+            assistant_id: null,
+            content: [
+                {
+                    text: {
+                        value: input
+                    }
+                }
+            ], 
+            id: 0
+        }
         setLoading(true);
-        
+        updateMessageThread(msg)
         const data = {
             prompt: input
         }
@@ -29,22 +50,46 @@ export const ChatProvider = ({ children }) => {
         }
     };
     
+    const getThreadMessages = async (data) => await axios.post(`${MEDIX_BASE_URL}/assistant/threads`, data);
+    
     const getMedixChat = async (thread) => {
         const data = {
-            id: 'thread_KBUc6854nndvOayafLGTfc7C'
+            id: thread
         }
-        const res = await axios.post(`${MEDIX_BASE_URL}/assistant/threads`, data);
-        console.log({res})
+        let res = await getThreadMessages(data);
+        let i = 0;
+        console.log({res, i})
+        while (!res.data.data && i <= 5) {
+            res = await getThreadMessages(data);
+            i++;
+        }
         if (res?.data?.message === 'Fetched all messages in thread') {
             setLoading(false);
             setConversation(true);
             setMedix(res?.data?.data)
-            localStorage.setItem('Medix_data', JSON.stringify(res?.data?.data))
+            localStorage.setItem('Medix_data', JSON.stringify(messages))
+        }
+        if (res.data.data) {
+            const lastMessage = await getLastMessage(res);
+            updateMessageThread(lastMessage)
+            console.log({messages})
         }
     } 
 
     const conversateWithMedix = async (input) => {
+        const msg = {
+            assistant_id: null,
+            content: [
+                {
+                    text: {
+                        value: input
+                    }
+                }
+            ], 
+            id: 0
+        }
         setLoading(true);
+        updateMessageThread(msg)
         
         const data = {
             prompt: input,
@@ -63,7 +108,7 @@ export const ChatProvider = ({ children }) => {
     };
     
     return (
-        <ChatContext.Provider value={{ loading, initializeMedix, conversateWithMedix, medix, conversation }}>
+        <ChatContext.Provider value={{ loading, initializeMedix, conversateWithMedix, getMedixChat, medix, conversation }}>
             {children}
         </ChatContext.Provider>
     )
