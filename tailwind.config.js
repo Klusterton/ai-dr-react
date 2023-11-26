@@ -5,9 +5,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      content: {
-        "quick-wavy-line": "url('/src/assets/landing-assets/quick-wavy-line.svg')",
-      }
     },
   },
   plugins: [],
