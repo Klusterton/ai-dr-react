@@ -9,7 +9,7 @@ export default function SignUp() {
     return (
         <>
             <div className='flex'>
-                <div className='flex-1 min-h-screen bg-[#067A50] flex justify-center items-center'>
+                <div className='flex-1 min-h-screen bg-[#067A50] bg-[url("../src/Assets/SignUp-LogIn_assets/login-img.png")] bg-cover flex justify-center items-center'>
                     <div className='h-[70%] flex flex-col justify-between'>
                         {/* Welcome message */}
                         <div className='flex flex-col items-center justify-center w-[50%] mx-auto gap-y-8'>
