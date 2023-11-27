@@ -29,7 +29,7 @@ export default function SignUp() {
                 </div>
                 <div className='flex-1 min-h-screen flex justify-center items-center'>
                     <div className='h-[65%] w-[70%] mx-auto'>
-                        <div className='flex flex-row justify-between mb-3 mids:w-[50%]'>
+                        <div className='flex flex-row justify-between mb-6 mids:w-[50%]'>
                             <h5 className='relative sign-up-page-underline text-2xl font-bold text-[#067A50]'>Register</h5>
                             <Link to="login" className='relative sign-up-page-underline flex justify-center items-center text-[#067A50]'>Log In</Link>
                         </div>
@@ -47,7 +47,7 @@ export default function SignUp() {
                                 <input type='password' name='password' id='password' className='w-full border border-[#C9E1D8] rounded-full px-4 py-2 shadow-[#BAB8B8_0.5px_0.5px_6px_0px] focus:bg-none focus:outline-none' />
                             </div>
                             <div className='flex gap-x-1'>
-                                <input type='radio' name='terms_of_service' id='terms_of_service' className='' />
+                                <input type='checkbox' name='terms_of_service' id='terms_of_service' className='cursor-pointer' />
                                 <label htmlFor='terms_of_service' className='text-[#067A50] font-normal text-xs'>I have read and agreed with the <Link className='text-[#FBC507]'>Terms of Service</Link> and <Link className='text-[#FBC507]'>Privacy Policy</Link></label>
                             </div>
                         </div>

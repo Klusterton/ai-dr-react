@@ -28,7 +28,7 @@ export default function Login() {
                 </div>
                 <div className='flex-1 min-h-screen flex justify-center items-center'>
                     <div className='h-[65%] w-[70%] mx-auto'>
-                        <div className='flex flex-row justify-between mb-3 mids:w-[50%]'>
+                        <div className='flex flex-row justify-between mb-6 mids:w-[50%]'>
                             <Link to="/auth" className='relative log-in-page-underline text-[#067A50]'>Register</Link>
                             <Link className='relative log-in-page-underline flex justify-center items-center text-[#067A50] text-2xl font-bold'>Log In</Link>
                         </div>
@@ -46,7 +46,7 @@ export default function Login() {
                             </div>
                             <div className='flex justify-between'>
                                 <div className='flex gap-x-1'>
-                                    <input type='radio' name='terms_of_service' id='terms_of_service' className='form-radio text-[#FBC507]' />
+                                    <input type='checkbox' name='terms_of_service' id='terms_of_service' className='form-radio text-[#FBC507] cursor-pointer' />
                                     <label htmlFor='terms_of_service' className='text-[#067A50] font-bold text-xs'>Remember me</label>
                                 </div>
                                 <Link className='text-xs font-normal text-[#5EA58B]'>Forgot Password?</Link>
@@ -54,7 +54,7 @@ export default function Login() {
                         </div>
                         <div className='mt-10 flex flex-col gap-y-4'>
                             <div className='flex justify-center'>
-                                <button className='bg-[#067A50] rounded-full px-16 py-2 text-[#F4F9F6] flex font-bold'>Log In</button>
+                                <button className='bg-[#067A50] rounded-full px-[4.3rem] py-2 text-[#F4F9F6] flex font-bold'>Log In</button>
                             </div>
                             <div className='flex items-start'>
                                 <div className='basis-2/3 border-[1px] border-[#C9E1D8] flex self-center'></div>
