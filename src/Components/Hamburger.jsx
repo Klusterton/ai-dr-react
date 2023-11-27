@@ -13,13 +13,13 @@ export default function Hamburger({setHamburger}){
                 e.stopPropagation()
                 setHamburger(false)
             }}>
-                <div  className="bg-Dark_Grey w-[85%] h-full absolute px-[29px] py-[32px] left-0 top-0" onClick={(e) => {
+                <div  className="bg-[#f5f5f5] w-[85%] h-full absolute px-[29px] py-[32px] left-0 top-0" onClick={(e) => {
                     e.stopPropagation()
                     setHamburger(true)
                 }}>
                     <div className="flex justify-between items-center">
-                        <img src={Logo} alt='logo' className='object-contain w-[60%] h-full' />
-                        <IoCloseCircleOutline className="cursor-pointer" onClick={(e) => {
+                        <img src={Logo} alt='logo' className='object-contain w-[40%] h-full' />
+                        <IoCloseCircleOutline className="cursor-pointer text-[20px]" onClick={(e) => {
                             e.stopPropagation()
                             setHamburger(false)
                         }} />

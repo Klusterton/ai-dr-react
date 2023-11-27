@@ -64,7 +64,7 @@ export default function ChatBox({ typing, data }) {
         <div className='h-[80vh] overflow-y-scroll flex flex-col gap-8 w-full mx-auto max-w-[53rem] pt-7 mb-7 phone:mb-0 phone:pt-10'>
             <div className='flex flex-col gap-8 w-full h-full'>
                 {/* Only show this when there are threadMessages in local storage */}
-                {isThereAThread() ? <MakeChoice /> : null}
+                {/* {isThereAThread() ? <MakeChoice /> : null} */}
                 {medix.map((message, id) => {
                     return (
                         <React.Fragment key={id}>

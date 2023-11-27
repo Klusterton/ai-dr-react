@@ -74,6 +74,11 @@ export default function ChatPage({ hamburger, setHamburger }) {
                                     onChange={(e =>
                                         updateUserInput(e?.target?.value)
                                     )}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            isConversationStarted() ? promptMessage() : sendMessage()
+                                        }
+                                    }}
                                     className='flex-1 focus:outline-none border-0 bg-transparent'
                                     placeholder='What’s your complain today'
                                 />

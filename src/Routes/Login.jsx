@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {ReactComponent as SignUpLogo} from '../Assets/SignUp-LogIn_assets/sign-up-logo.svg';
 import {ReactComponent as GoogleBtn} from '../Assets/SignUp-LogIn_assets/google-button.svg';
 import {ReactComponent as FacebookBtn} from '../Assets/SignUp-LogIn_assets/facebook-button.svg';
 import {ReactComponent as AppleBtn} from '../Assets/SignUp-LogIn_assets/apple-button.svg';
 import { Link } from 'react-router-dom';
+import { CgSpinner } from 'react-icons/cg';
+import { UserContext } from '../Context/UserContext';
 
 export default function Login() {
+    const {
+        loginValue,
+        setLoginValue,
+        loading,
+        login
+    } = useContext(UserContext)
+
+    const handleSubmit = (value) => {
+        login(value)
+        setLoginValue({
+            email: '',
+            password: ''
+        })
+    }
+
     return (
         <div className='flex'>
                 <div className='flex-1 min-h-screen bg-[#067A50] bg-[url("../src/Assets/SignUp-LogIn_assets/login-img.png")] bg-cover hidden justify-center items-center phone:flex'>
@@ -38,11 +55,25 @@ export default function Login() {
                         <div className='flex flex-col gap-y-2'>
                             <div className='flex flex-col gap-y-3'>
                                 <label htmlFor='email' className='text-[#067A50] font-normal text-base'>Email</label>
-                                <input type='email' name='email' id='email' className='w-full border border-[#C9E1D8] rounded-full px-4 py-2 shadow-[#BAB8B8_0.5px_0.5px_6px_0px] focus:bg-none focus:outline-none' />
+                                <input 
+                                    value={loginValue.email}
+                                    onChange={(e) => setLoginValue({...loginValue, email: e.target.value})}
+                                    type='email' 
+                                    name='email' 
+                                    id='email' 
+                                    className='w-full border border-[#C9E1D8] rounded-full px-4 py-2 shadow-[#BAB8B8_0.5px_0.5px_6px_0px] focus:bg-none focus:outline-none' 
+                                />
                             </div>
                             <div className='flex flex-col gap-y-3'>
                                 <label htmlFor='password' className='text-[#067A50] font-normal text-base'>Password</label>
-                                <input type='password' name='password' id='password' className='w-full border border-[#C9E1D8] rounded-full px-4 py-2 shadow-[#BAB8B8_0.5px_0.5px_6px_0px] focus:bg-none focus:outline-none' />
+                                <input 
+                                    value={loginValue.password}
+                                    onChange={(e) => setLoginValue({...loginValue, password: e.target.value})}
+                                    type='password' 
+                                    name='password' 
+                                    id='password' 
+                                    className='w-full border border-[#C9E1D8] rounded-full px-4 py-2 shadow-[#BAB8B8_0.5px_0.5px_6px_0px] focus:bg-none focus:outline-none' 
+                                />
                             </div>
                             <div className='flex justify-between'>
                                 <div className='flex gap-x-1'>
@@ -53,8 +84,10 @@ export default function Login() {
                             </div>
                         </div>
                         <div className='mt-10 flex flex-col gap-y-4'>
-                            <div className='flex justify-center'>
-                                <button className='bg-[#067A50] rounded-full px-16 py-2 text-[#F4F9F6] flex font-bold'>Log In</button>
+                            <div className='flex justify-center' onClick={() => handleSubmit(loginValue)}>
+                                <button className='bg-[#067A50] rounded-full px-16 py-2 text-[#F4F9F6] flex font-bold'>
+                                    {loading ? <CgSpinner className='animate-spin text-[24px]' /> : 'Log In'}
+                                </button>
                             </div>
                             <div className='flex items-start'>
                                 <div className='basis-2/3 border-[1px] border-[#C9E1D8] flex self-center'></div>
