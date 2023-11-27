@@ -19,7 +19,7 @@ export default function Hamburger({setHamburger}){
                 }}>
                     <div className="flex justify-between items-center">
                         <img src={Logo} alt='logo' className='object-contain w-[40%] h-full' />
-                        <IoCloseCircleOutline className="cursor-pointer text-[20px]" onClick={(e) => {
+                        <IoCloseCircleOutline className="cursor-pointer text-[30px]" onClick={(e) => {
                             e.stopPropagation()
                             setHamburger(false)
                         }} />
@@ -41,7 +41,7 @@ export default function Hamburger({setHamburger}){
                             <img src={User} alt='user' className="w-[30px] h-[30px] object-contain rounded-full" />
                             <p>Test User</p>
                         </div>
-                        <div className="w-full py-[10px] flex gap-[14px] items-center cursor-pointer text-[16px] font-normal" >
+                        <div onClick={() => navigate('/auth/login')} className="w-full py-[10px] flex gap-[14px] items-center cursor-pointer text-[16px] font-normal" >
                             <Logout />
                             <p>Log Out</p>
                         </div>
