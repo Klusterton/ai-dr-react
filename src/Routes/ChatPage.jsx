@@ -11,8 +11,7 @@ import { CgSpinner } from 'react-icons/cg';
 export default function ChatPage({ hamburger, setHamburger }) {
     const {
         loading,
-        initializeMedix,
-        conversateWithMedix,
+        typing,
         getMedixChat,
         updateUserInput,
         userInput,
@@ -20,47 +19,30 @@ export default function ChatPage({ hamburger, setHamburger }) {
         manageChatInteraction,
         isConversationStarted
     } = useContext(ChatContext);
-    const data = localStorage.getItem('Medix_data');
+    const data = localStorage.getItem('Medix_Chat');
+    const medix = data ? JSON.parse(data) : null
     const id = localStorage.getItem('Medix_AI');
-    const [MedixData, SetMedixData] = useState([]);
-    //const MedixData = JSON.parse(data);
-    //const [chat, setChat] = useState('');
-    // const [otherChat, setOtherChat] = useState('');
-
+    const medixData = medix || messages;
+    const [MedixData, SetMedixData] = useState(medixData);
+    
     const sendMessage = () => {
-        console.log('SEND MESSAGE');
         if (userInput.trim() !== '') {
-            // initializeMedix(chat);
             manageChatInteraction({ prompt: userInput });
             updateUserInput('');
         }
     };
 
     const promptMessage = () => {
-        console.log('PROMPT MESSAGE');
         const threadId = localStorage.getItem('thread_id');
         if (userInput.trim() !== '') {
-            // initializeMedix(chat);
             manageChatInteraction({ id: threadId, prompt: userInput });
             updateUserInput('');
         }
     };
 
-    // useEffect(() => {
-    //     manageChatInteraction();
-    // }, []);
-
     useEffect(() => {
-        console.log('See Messages', messages);
-        SetMedixData(messages);
-    }, [messages]);
-
-    // const sendOtherChat = () => {
-    //     if (otherChat.trim() !== '') {
-    //         conversateWithMedix(otherChat);
-    //         setOtherChat('');
-    //     }
-    // };
+        SetMedixData(medixData);
+    }, []);
 
     return (
         <DashboardLayout setHamburger={setHamburger}>
@@ -80,8 +62,7 @@ export default function ChatPage({ hamburger, setHamburger }) {
                             </div>
                         </div>
                     )}
-                    {MedixData === null && (<button >Retry</button>)}
-                    {(MedixData && MedixData?.length > 0) && <ChatBox typing={loading} Ai={MedixData} />}
+                    {(MedixData && MedixData?.length > 0) && <ChatBox typing={typing} data={MedixData} />}
                 </div>
                 <div className='flex-1 flex items-end pl-2 w-[calc(100%-.5rem)]'>
                     <div className='flex mids:last:mb-6 mx-auto w-full phone:max-w-[53rem]'>
@@ -96,9 +77,9 @@ export default function ChatPage({ hamburger, setHamburger }) {
                                     className='flex-1 focus:outline-none border-0 bg-transparent'
                                     placeholder='What’s your complain today'
                                 />
-                                <div className='w-8 h-8 cursor-pointer'>
+                                <div className='w-8 h-8 cursor-pointer' onClick={() => isConversationStarted() ? promptMessage() : sendMessage()}>
                                     {loading ? (<CgSpinner className='animate-spin text-[32px]' />) : (
-                                        <img src={Send} alt='send' onClick={() => isConversationStarted() ? promptMessage() : sendMessage()} />
+                                        <img src={Send} alt='send' />
                                     )}
                                 </div>
                             </div>

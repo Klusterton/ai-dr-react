@@ -44,7 +44,7 @@ export default function Aside({ setHamburger }) {
                     <img src={User} alt='user' className='w-[30px] h-[30px] rounded-full object-contain' />
                     <p>Test User</p>
                 </div>
-                <div className="w-full py-[10px] pr-5 pl-[39px] flex gap-[14px] border-t border-[#E6E7EC] items-center cursor-pointer text-Dark_Grey text-[16px] font-normal" >
+                <div onClick={() => navigate('/auth/login')} className="w-full py-[10px] pr-5 pl-[39px] flex gap-[14px] border-t border-[#E6E7EC] items-center cursor-pointer text-Dark_Grey text-[16px] font-normal" >
                     <Logout />
                     <p>Log Out</p>
                 </div>
@@ -56,7 +56,7 @@ export default function Aside({ setHamburger }) {
                 <div className='cursor-pointer flex justify-center' onClick={() => navigate('/')}>
                     <img src={Logo} alt='logo' className='object-contain w-[30%] h-full' />
                 </div>
-                <div>
+                <div onClick={() => navigate('/auth/login')}>
                     <Logout />
                 </div>
             </section>

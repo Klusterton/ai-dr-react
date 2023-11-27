@@ -8,7 +8,7 @@ const MakeChoice = () => {
     return (
         <div>
             <h3 className='text-2xl'>Reload Chat?</h3>
-            <span>Do you want to load previous start or start a new one</span>
+            <span>Do you want to load previous chat or start a new one</span>
             <section className='flex gap-2'>
                 <button>Load Previous Chat</button>
                 <button className="bg-slate-700 text-white rounded-lg py-2 px-4">Start New Chat</button>
@@ -18,7 +18,6 @@ const MakeChoice = () => {
 };
 
 const YouChatBubble = ({ content }) => {
-    console.log('HUMAN-Message', content);
     return (
         <div className='flex flex-col gap-[10px]'>
             <div className='flex items-center gap-2'>
@@ -33,7 +32,6 @@ const YouChatBubble = ({ content }) => {
 };
 
 const AIChatBubble = ({ content }) => {
-    //console.log('AI-Message', m);
     return (
         <div className='flex flex-col gap-[10px]'>
             <div className='flex flex-col gap-[10px]'>
@@ -42,17 +40,16 @@ const AIChatBubble = ({ content }) => {
                     <p className='text-[16px] font-medium'>Medix AI</p>
                 </div>
                 <div className='bg-green-600 rounded-[12px] px-4 py-[14px] w-fit text-white font-normal text-[16px]'>
-                    {content[0].text.value}
+                    {content.content[0].text.value}
                 </div>
             </div>
         </div>
     );
 };
 
-export default function ChatBox({ Ai, typing }) {
-    const medix = Ai?.slice().reverse();
-    // console.log({medix})
-    const { messages } = useContext(ChatContext);
+export default function ChatBox({ typing, data }) {
+    const medix = data?.slice().reverse();
+    console.log({medix})
 
     const isThereAThread = () => {
         const threadId = localStorage.getItem('thread_id');
@@ -64,13 +61,27 @@ export default function ChatBox({ Ai, typing }) {
 
 
     return (
-        <div className='phone:h-full h-[500px] overflow-y-scroll flex flex-col gap-8 w-full mx-auto max-w-[53rem] pt-7 mb-7 phone:mb-0 phone:pt-10'>
+        <div className='h-[80vh] overflow-y-scroll flex flex-col gap-8 w-full mx-auto max-w-[53rem] pt-7 mb-7 phone:mb-0 phone:pt-10'>
             <div className='flex flex-col gap-8 w-full h-full'>
                 {/* Only show this when there are threadMessages in local storage */}
                 {isThereAThread() ? <MakeChoice /> : null}
-                {messages.map(message => message.assistant_id
-                    ? <AIChatBubble content={message} />
-                    : <YouChatBubble content={message} />
+                {medix.map((message, id) => {
+                    return (
+                        <React.Fragment key={id}>
+                            {message.assistant_id === null ? (
+                                <YouChatBubble content={message} />
+                            ) : (
+                                <AIChatBubble content={message} />
+                            )}
+                        </React.Fragment>
+                    )}
+                )}
+                {typing && (
+                    <div className='pl-1 flex gap-[9px] items-center'>
+                        <div className='animated-dot bg-green-600 rounded-[12px] w-[14px] h-[14px]'></div>
+                        <div className='animated-dot bg-green-600 rounded-[12px] w-[14px] h-[14px]'></div>
+                        <div className='animated-dot bg-green-600 rounded-[12px] w-[14px] h-[14px]'></div>
+                    </div>
                 )}
             </div>
         </div>
