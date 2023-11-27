@@ -7,7 +7,7 @@ import ResetPassword from './ResetPassword'
 export default function Auth() {
     return (
         <Routes>
-            <Route exact path='' element={<SignUp />} />
+            <Route exact path='/' element={<SignUp />} />
             <Route path='login' element={<Login />} />
             <Route path='reset-password' element={<ResetPassword />} />
         </Routes>

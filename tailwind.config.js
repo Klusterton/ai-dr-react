@@ -22,6 +22,7 @@ module.exports = {
         'mid': '900px',
         'mids': '1000px',
         'desktop': '1200px',
+        "lg-Desktop": "1400px",
       },
     },
   },

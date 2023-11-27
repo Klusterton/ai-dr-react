@@ -20,6 +20,36 @@ body {
   animation-delay: 0.4s; 
 }
 
+.quick::after {
+  content: url("./Assets/landing-assets/quick-wavy-line.svg");
+  position: absolute;
+  left: -6px;
+  bottom: -16px;
+}
+
+.how-it-works {
+  background-image: url("./Assets/landing-assets/how-it-works-bg.svg");
+}
+.footer-underline::after {
+  content: url("./Assets/landing-assets/footer-underline.svg");
+  position: absolute;
+  left: 0;
+  bottom: -.5rem;
+}
+
+.sign-up-page-underline::after, .log-in-page-underline::after {
+  content: "";
+  border: 1px solid #C9E1D8;
+  position: absolute;
+  width: 90%;
+  bottom: -3px;
+  left: 5%;
+}
+
+.log-in-page-underline:first-of-type:after {
+  bottom: 4px;
+}
+
 @keyframes zoomAnimation {
   0%, 100% {
     transform: scale(1);
