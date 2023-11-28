@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
+    const data = localStorage.getItem('Medix_User')
+    const localUser = data ? JSON.parse(data) : null
+    const [user, setUser] = useState(localUser);
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false)
@@ -25,9 +27,9 @@ export const UserProvider = ({ children }) => {
         setLoading(true);
         try {
             const res = await axios.post(`${MEDIX_BASE_URL}/users`, signupValue);
-            console.log({res})
-            if (res?.status === 200) {
+            if (res?.status === 201) {
                 setLoading(false);
+                localStorage.setItem('Medix_User', JSON.stringify(res.data))
                 setUser(res?.data);
                 setSuccess(true)
                 setTimeout(() => {
@@ -52,6 +54,7 @@ export const UserProvider = ({ children }) => {
             if (res?.status === 200) {
                 setLoading(false)
                 setSuccess(true)
+                localStorage.setItem('Medix_User', JSON.stringify(res.data))
                 setUser(res?.data)
                 setTimeout(() => {
                     setSuccess(false)

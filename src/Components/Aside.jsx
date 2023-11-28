@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Logo from '../Assets/img/logo.png'
 import User from '../Assets/img/avatar.png'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { Chat, ChatActive, Intro, IntroActive, Logout } from '../Assets/svg'
 import { CgMenuLeft } from 'react-icons/cg'
+import { UserContext } from '../Context/UserContext'
 
-export default function Aside({ setHamburger }) {    
+export default function Aside({ setHamburger }) {  
+    const { user } = useContext(UserContext)  
     const navigate = useNavigate()
     const location = useLocation()
     const active = location.pathname
@@ -42,7 +44,7 @@ export default function Aside({ setHamburger }) {
             <section className="flex-1 mid:flex hidden flex-col text-base justify-end gap-2 w-full">
                 <div className="w-full py-[10px] pr-5 pl-[39px] flex gap-2 border-t border-[#E6E7EC] items-center cursor-pointer text-Dark_Grey text-[16px] font-normal" >
                     <img src={User} alt='user' className='w-[30px] h-[30px] rounded-full object-contain' />
-                    <p>Test User</p>
+                    <p>{user?.name}</p>
                 </div>
                 <div onClick={() => navigate('/auth/login')} className="w-full py-[10px] pr-5 pl-[39px] flex gap-[14px] border-t border-[#E6E7EC] items-center cursor-pointer text-Dark_Grey text-[16px] font-normal" >
                     <Logout />
