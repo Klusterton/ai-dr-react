@@ -10,16 +10,16 @@ export const ChatProvider = ({ children }) => {
     const [messages, setMessages] = useState([]);
     const [startedChat, setStartedChat] = useState(false);
     const [userInput, setUserInput] = useState('');
+    localStorage.setItem('Medix_Chat', JSON.stringify(messages));
     
     const updateUserInput = input => setUserInput(input);
-
+    
     const getLastMessage = async (data) => {
         return data?.data?.data?.[0];
     };
 
     const updateMessageThread = (data) => {
         setMessages((prevMessages) => [data, ...prevMessages]);
-        localStorage.setItem('Medix_Chat', JSON.stringify(messages));
         setTyping(false);
     };
   
