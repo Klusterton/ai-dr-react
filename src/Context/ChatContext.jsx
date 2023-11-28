@@ -85,11 +85,11 @@ export const ChatProvider = ({ children }) => {
         // talk to API
         const chatInitInfo = await initializeChat(input.prompt);
         // get back response and store thread id to local storage
-        if (chatInitInfo.thread_id) {
-            localStorage.setItem('thread_id', chatInitInfo.thread_id);
+        if (chatInitInfo) {
             setMessages(oldMessages => [generateUserInput(input.prompt), ...oldMessages]);
+            localStorage.setItem('thread_id', chatInitInfo);
             setLoading(false)
-            getMedixChat(chatInitInfo.thread_id)
+            getMedixChat(chatInitInfo)
         }
         // update threadMessages with my message
         // then call the threads endpoint to get ai response and update threadMessages with ai response

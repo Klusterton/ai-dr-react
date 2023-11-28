@@ -22,7 +22,7 @@ export default function ChatPage({ hamburger, setHamburger }) {
     const data = localStorage.getItem('Medix_Chat');
     const medix = data ? JSON.parse(data) : null
     const id = localStorage.getItem('Medix_AI');
-    const medixData = medix || messages;
+    const medixData = messages?.length > 0 ? messages : medix;
     const [MedixData, SetMedixData] = useState(medixData);
     
     const sendMessage = () => {
@@ -41,8 +41,8 @@ export default function ChatPage({ hamburger, setHamburger }) {
     };
 
     useEffect(() => {
-        SetMedixData(medixData);
-    }, []);
+        SetMedixData(messages);
+    }, [messages]);
 
     return (
         <DashboardLayout setHamburger={setHamburger}>
