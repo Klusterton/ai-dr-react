@@ -19,11 +19,8 @@ export default function ChatPage({ hamburger, setHamburger }) {
         manageChatInteraction,
         isConversationStarted
     } = useContext(ChatContext);
-    const data = localStorage.getItem('Medix_Chat');
-    const medix = data ? JSON.parse(data) : null
     const id = localStorage.getItem('Medix_AI');
-    const medixData = messages?.length > 0 ? messages : medix;
-    const [MedixData, SetMedixData] = useState(medixData);
+    const [MedixData, SetMedixData] = useState(messages);
     
     const sendMessage = () => {
         if (userInput.trim() !== '') {

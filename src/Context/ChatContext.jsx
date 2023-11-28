@@ -7,11 +7,13 @@ export const ChatContext = createContext();
 export const ChatProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [typing, setTyping] = useState(false)
-    const [messages, setMessages] = useState([]);
+    const data = localStorage.getItem('Medix_Chat');
+    const localMessages = data ? JSON.parse(data) : []
+    const [messages, setMessages] = useState(localMessages);
     const [startedChat, setStartedChat] = useState(false);
     const [userInput, setUserInput] = useState('');
-    localStorage.setItem('Medix_Chat', JSON.stringify(messages));
     
+    localStorage.setItem('Medix_Chat', JSON.stringify(messages));
     const updateUserInput = input => setUserInput(input);
     
     const getLastMessage = async (data) => {
