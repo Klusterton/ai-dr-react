@@ -6,22 +6,56 @@ import {ReactComponent as AppleBtn} from '../Assets/SignUp-LogIn_assets/apple-bu
 import { Link } from 'react-router-dom';
 import { CgSpinner } from 'react-icons/cg';
 import { UserContext } from '../Context/UserContext';
+import { useSnackbar } from "notistack";
 
 export default function Login() {
     const {
         loginValue,
         setLoginValue,
         loading,
-        login
+        login,
+        success,
+        error
     } = useContext(UserContext)
-
+    const { enqueueSnackbar } = useSnackbar();
+    
     const handleSubmit = (value) => {
+        if (!value.email || !value.password) {
+            enqueueSnackbar('Please fill all fields!', {
+                variant: 'error',
+                anchorOrigin: {
+                  vertical: 'top',
+                  horizontal: 'right',
+                },
+            })
+            return;
+        }
         login(value)
         setLoginValue({
             email: '',
             password: ''
         })
     }
+    
+    success && (
+        enqueueSnackbar('Logged in successfully!', {
+            variant: 'success',
+            anchorOrigin: {
+              vertical: 'top',
+              horizontal: 'right',
+            },
+        })
+    )
+    
+    error && (
+        enqueueSnackbar('Error while login!', {
+            variant: 'error',
+            anchorOrigin: {
+              vertical: 'top',
+              horizontal: 'right',
+            },
+        })
+    )
 
     return (
         <div className='flex'>
@@ -84,8 +118,8 @@ export default function Login() {
                             </div>
                         </div>
                         <div className='mt-10 flex flex-col gap-y-4'>
-                            <div className='flex justify-center' onClick={() => handleSubmit(loginValue)}>
-                                <button className='bg-[#067A50] rounded-full px-16 py-2 text-[#F4F9F6] flex font-bold'>
+                            <div className='flex justify-center'>
+                                <button onClick={() => handleSubmit(loginValue)} className='bg-[#067A50] rounded-full px-16 py-2 text-[#F4F9F6] flex font-bold'>
                                     {loading ? <CgSpinner className='animate-spin text-[24px]' /> : 'Log In'}
                                 </button>
                             </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import {ReactComponent as SignUpLogo} from '../Assets/SignUp-LogIn_assets/sign-up-logo.svg';
 import {ReactComponent as GoogleBtn} from '../Assets/SignUp-LogIn_assets/google-button.svg';
 import {ReactComponent as FacebookBtn} from '../Assets/SignUp-LogIn_assets/facebook-button.svg';
@@ -6,16 +6,30 @@ import {ReactComponent as AppleBtn} from '../Assets/SignUp-LogIn_assets/apple-bu
 import { Link } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 import { CgSpinner } from 'react-icons/cg';
+import { useSnackbar } from 'notistack';
 
 export default function SignUp() {
     const { 
         signupValue, 
         setSignupValue,
         signup,
-        loading
+        loading,
+        error,
+        success
     } = useContext(UserContext)
+    const { enqueueSnackbar } = useSnackbar()
 
     const handleSubmit = (value) => {
+        if (!value.name ||!value.email || !value.password) {
+            enqueueSnackbar('Please fill all fields!', {
+                variant: 'error',
+                anchorOrigin: {
+                  vertical: 'top',
+                  horizontal: 'right',
+                },
+            })
+            return;
+        }
         signup(value)
         setSignupValue({
             name: '',
@@ -23,6 +37,26 @@ export default function SignUp() {
             password: ''
         })
     }
+
+    success && (
+        enqueueSnackbar('Account Created Successfully!', {
+            variant: 'success',
+            anchorOrigin: {
+              vertical: 'top',
+              horizontal: 'right',
+            },
+        })
+    )
+
+    error && (
+        enqueueSnackbar('Error creating account!', {
+            variant: 'error',
+            anchorOrigin: {
+              vertical: 'top',
+              horizontal: 'right',
+            },
+        })
+    )
 
     return (
         <>
