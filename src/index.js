@@ -6,14 +6,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ChatProvider } from './Context/ChatContext';
+import { UserProvider } from './Context/UserContext';
+import { SnackbarProvider } from 'notistack';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ChatProvider>
-        <App />
-      </ChatProvider>
+      <UserProvider>
+        <ChatProvider>
+          <SnackbarProvider maxSnack={3}>
+            <App />
+          </SnackbarProvider>
+        </ChatProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
