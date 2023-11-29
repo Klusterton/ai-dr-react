@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=17.0.0"
+  },
   "name": "ai-doctor",
   "version": "0.1.0",
   "private": true,
