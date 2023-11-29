@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { ReactComponent as SignUpLogo } from '../Assets/SignUp-LogIn_assets/sign-up-logo.svg';
-import { ReactComponent as GoogleBtn } from '../Assets/SignUp-LogIn_assets/google-button.svg';
-import { ReactComponent as FacebookBtn } from '../Assets/SignUp-LogIn_assets/facebook-button.svg';
-import { ReactComponent as AppleBtn } from '../Assets/SignUp-LogIn_assets/apple-button.svg';
+import { ReactComponent as SignUpLogo } from '../Assets/SignUpLoginAssets/sign-up-logo.svg';
+import { ReactComponent as GoogleBtn } from '../Assets/SignUpLoginAssets/google-button.svg';
+import { ReactComponent as FacebookBtn } from '../Assets/SignUpLoginAssets/facebook-button.svg';
+import { ReactComponent as AppleBtn } from '../Assets/SignUpLoginAssets/apple-button.svg';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 import { CgSpinner } from 'react-icons/cg';
