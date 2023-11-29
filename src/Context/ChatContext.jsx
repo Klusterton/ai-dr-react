@@ -118,6 +118,13 @@ export const ChatProvider = ({ children }) => {
         return false;
     };
 
+    const clearConversationCache = () => {
+        localStorage.removeItem("thread_id");
+        localStorage.removeItem("Medix_Chat");
+        localStorage.removeItem("chatStarted");
+        window.location.reload();
+    };
+
     const manageChatInteraction = (chat) => {
         setLoading(true);
         // have state to track if a chat has started so it will call promptThread method instead of startNewChatconsole.log('Manage Chat Interaction');
@@ -142,7 +149,8 @@ export const ChatProvider = ({ children }) => {
                 loadOldChat,
                 userInput,
                 updateUserInput,
-                isConversationStarted
+                isConversationStarted,
+                clearConversationCache
             }}>
             {children}
         </ChatContext.Provider>
