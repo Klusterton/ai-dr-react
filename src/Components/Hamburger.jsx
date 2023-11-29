@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Logo from '../Assets/img/logo.png'
 import User from '../Assets/img/avatar.png'
 import { Logout } from "../Assets/svg";
+import { UserContext } from "../Context/UserContext";
 
 export default function Hamburger({setHamburger}){
+    const { user } = useContext(UserContext)
     const navigate = useNavigate()
 
     return (
@@ -13,13 +15,13 @@ export default function Hamburger({setHamburger}){
                 e.stopPropagation()
                 setHamburger(false)
             }}>
-                <div  className="bg-Dark_Grey w-[85%] h-full absolute px-[29px] py-[32px] left-0 top-0" onClick={(e) => {
+                <div  className="bg-[#f5f5f5] w-[85%] h-full absolute px-[29px] py-[32px] left-0 top-0" onClick={(e) => {
                     e.stopPropagation()
                     setHamburger(true)
                 }}>
                     <div className="flex justify-between items-center">
-                        <img src={Logo} alt='logo' className='object-contain w-[60%] h-full' />
-                        <IoCloseCircleOutline className="cursor-pointer" onClick={(e) => {
+                        <img src={Logo} alt='logo' className='object-contain w-[40%] h-full' />
+                        <IoCloseCircleOutline className="cursor-pointer text-[30px]" onClick={(e) => {
                             e.stopPropagation()
                             setHamburger(false)
                         }} />
@@ -39,9 +41,9 @@ export default function Hamburger({setHamburger}){
                     <div className="mt-[16px] flex flex-col gap-4">
                         <div className="w-full py-[10px] flex gap-2 items-center cursor-pointer text-[16px] font-normal" >
                             <img src={User} alt='user' className="w-[30px] h-[30px] object-contain rounded-full" />
-                            <p>Test User</p>
+                            <p>{user?.name}</p>
                         </div>
-                        <div className="w-full py-[10px] flex gap-[14px] items-center cursor-pointer text-[16px] font-normal" >
+                        <div onClick={() => navigate('/auth/login')} className="w-full py-[10px] flex gap-[14px] items-center cursor-pointer text-[16px] font-normal" >
                             <Logout />
                             <p>Log Out</p>
                         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {ReactComponent as CheckMarkSVG} from '../../Assets/landing-assets/who-we-are-checkmark.svg';
 import {ReactComponent as HeroImgSVG} from '../../Assets/landing-assets/who-we-are-img.svg';
+import { Link } from 'react-router-dom';
 
 const WhoWeAreComponent = () => {
   return (
@@ -22,7 +23,7 @@ const WhoWeAreComponent = () => {
                 </div>
             </div>
             <div>
-                <button className='bg-[#067A50] rounded-full px-10 py-3 text-[#F4F9F6] text-base font-normal'>Get Started</button>
+                <Link to="/auth" className='bg-[#067A50] inline-block rounded-full px-10 py-3 text-[#F4F9F6] text-base font-normal'>Get Started</Link>
             </div>
         </div>
         <div className='flex-1 hidden justify-end mids:flex'>

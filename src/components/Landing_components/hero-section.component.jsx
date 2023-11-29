@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroImg from '../../Assets/landing-assets/doctor-smiling.png';
+import { Link } from 'react-router-dom';
 
 const HeroSectionComponent = () => {
   return (
@@ -14,7 +15,7 @@ const HeroSectionComponent = () => {
                     <p className='text-sm font-normal text-[#F4F9F6]'>Maintaining a good health status requires you to always be in check. There is no better way to do this than having the right information you need at the tip of your fingers.</p>
                 </div>
                 <div>
-                    <button className='bg-[#FBC507] rounded-full px-4 py-2 text-[#F4F9F6] text-l font-bold'>Get Started for free</button>
+                    <Link to="/auth" className='bg-[#FBC507] rounded-full px-4 py-3 text-[#F4F9F6] text-l font-bold'>Get Started for free</Link>
                 </div>
             </div>
             <div id='hero-img' className='relative items-stretch basis-1/2 overflow-hidden hidden mids:block'>

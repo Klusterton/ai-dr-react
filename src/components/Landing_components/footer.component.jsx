@@ -20,8 +20,8 @@ const FooterComponent = () => {
                         <p className='text-white text-sm font-normal text-center'>It was founded in 2023. The mission of the Organization is to equip individuals with adequate information with regards to their health for better living.</p>
                     </div>
                     <div className='flex flex-row justify-between gap-y-1 mini:flex-col mini:justify-start'>
-                        <div className='text-white'><span className='h-full bg-white rounded-full mr-4 overflow-clip'><EmailSVG className='inline-block' /></span>info@medix.com</div>
-                        <div className='text-white'><span className='h-full bg-white rounded-full mr-4 overflow-clip'><LocationSVG className='inline-block'/></span>Lagos, Nigeria.</div>
+                        <div className='text-white'><span className='h-full inline-block mr-4'><EmailSVG className='inline-block' /></span>info@medix.com</div>
+                        <div className='text-white'><span className='h-full inline-block mr-4'><LocationSVG className='inline-block'/></span>Lagos, Nigeria.</div>
                     </div>
                 </div>
                 <div className='flex flex-wrap justify-between phones:grid phones:grid-cols-3 phones:basis-[60%]'>
@@ -50,7 +50,7 @@ const FooterComponent = () => {
                         <div className='text-white flex flex-col gap-y-3 items-center phones:items-start'>
                             <p>For more enquiries. Reach out to us.</p>
                             <p>Call : +234 123 567 7890</p>
-                            <div><Link className='rounded-full inline-block text-[#F4F9F6] bg-[#FBC507] px-6 py-2'>Get Started</Link></div>
+                            <div><Link to="/auth" className='rounded-full inline-block text-[#F4F9F6] bg-[#FBC507] px-6 py-2'>Get Started</Link></div>
                         </div>
                     </div>
                 </div>
