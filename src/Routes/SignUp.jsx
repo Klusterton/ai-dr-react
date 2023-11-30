@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { ReactComponent as SignUpLogo } from '../Assets/SignUpLoginAssets/sign-up-logo.svg';
-import { ReactComponent as GoogleBtn } from '../Assets/SignUpLoginAssets/google-button.svg';
-import { ReactComponent as FacebookBtn } from '../Assets/SignUpLoginAssets/facebook-button.svg';
-import { ReactComponent as AppleBtn } from '../Assets/SignUpLoginAssets/apple-button.svg';
+import { ReactComponent as SignUpLogo } from '../Assets/SignUpLogInAssets/signUpLogo.svg';
+import { ReactComponent as GoogleBtn } from '../Assets/SignUpLogInAssets/googleButton.svg';
+import { ReactComponent as FacebookBtn } from '../Assets/SignUpLogInAssets/facebookButton.svg';
+import { ReactComponent as AppleBtn } from '../Assets/SignUpLogInAssets/appleButton.svg';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 import { CgSpinner } from 'react-icons/cg';
@@ -61,7 +61,7 @@ export default function SignUp() {
     return (
         <>
             <div className='flex'>
-                <div className='flex-1 min-h-screen bg-[#067A50] bg-[url("../src/Assets/SignUp-LogIn_assets/login-img.png")] bg-cover hidden justify-center items-center phone:flex'>
+                <div className='flex-1 min-h-screen bg-[#067A50] bg-[url("../src/Assets/SignUpLogInAssets/loginImg.png")] bg-cover hidden justify-center items-center phone:flex'>
                     <div className='h-[70%] flex flex-col justify-between'>
                         {/* Welcome message */}
                         <div className='flex flex-col items-center justify-center w-[50%] mx-auto gap-y-8'>
