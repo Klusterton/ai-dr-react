@@ -17,21 +17,21 @@ body {
 }
 
 .animated-dot:nth-child(3) {
-  animation-delay: 0.4s; 
+  animation-delay: 0.4s;
 }
 
 .quick::after {
-  content: url("./Assets/landing-assets/quick-wavy-line.svg");
+  content: url("./Assets/LandingAssets/quick-wavy-line.svg");
   position: absolute;
   left: -6px;
   bottom: -16px;
 }
 
 .how-it-works {
-  background-image: url("./Assets/landing-assets/how-it-works-bg.svg");
+  background-image: url("./Assets/LandingAssets/how-it-works-bg.svg");
 }
 .footer-underline::after {
-  content: url("./Assets/landing-assets/footer-underline.svg");
+  content: url("./Assets/LandingAssets/footer-underline.svg");
   position: absolute;
   left: 0;
   bottom: -.5rem;

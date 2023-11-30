@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Logo } from '../../Assets/landing-assets/navbar-logo.svg';
+import { ReactComponent as Logo } from '../../Assets/LandingAssets/navbar-logo.svg';
 import { Link } from 'react-router-dom';
 
 const NavbarComponent = () => {
