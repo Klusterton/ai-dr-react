@@ -61,7 +61,7 @@ export default function ChatBox({ typing, data }) {
 
 
     return (
-        <div className='h-[80vh] overflow-y-scroll flex flex-col gap-8 w-full mx-auto max-w-[53rem] pt-7 pb-7 phone:pb-0 phone:pt-10'>
+        <div className='h-full overflow-y-scroll flex flex-col gap-8 w-full mx-auto max-w-[53rem] pb-7 phone:pb-0 phone:pt-10'>
             <div className='flex flex-col gap-8 w-full h-full'>
                 {/* Only show this when there are threadMessages in local storage */}
                 {/* {isThereAThread() ? <MakeChoice /> : null} */}

@@ -53,8 +53,8 @@ export default function ChatPage({ hamburger, setHamburger }) {
     return (
         <DashboardLayout setHamburger={setHamburger}>
             {hamburger && <Hamburger setHamburger={setHamburger} />}
-            <div className='flex-1 flex flex-col h-full justify-center w-full'>
-                <div className='mids:overflow-hidden w-full'>
+            <div className='flex-1 flex flex-col h-full justify-center w-full gap-[1rem]'>
+                <div className='mids:overflow-hidden w-full mid:h-[80vh] h-[75vh]'>
                     {
                         hasChatHistory
                             ? <MakeChoice toggleChatHistory={toggleChatHistory} />
@@ -79,7 +79,7 @@ export default function ChatPage({ hamburger, setHamburger }) {
                     }
                 </div>
                 <div className='flex-1 flex items-end pl-2 w-[calc(100%-.5rem)]'>
-                    <div className='flex mids:last:mb-6 mx-auto w-full phone:max-w-[53rem]'>
+                    <div className='flex mx-auto w-full phone:max-w-[53rem]'>
                         <div className='relative flex gap-6 h-full flex-1 items-stretch flex-col'>
                             {(!MedixData || MedixData?.length <= 0) && <Suggestions setChat={updateUserInput} />}
                             <div className='flex w-full items-center py-3 px-4 border-[0.5px] border-Dark_Grey rounded-[20px]'>
