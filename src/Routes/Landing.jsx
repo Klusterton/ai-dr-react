@@ -1,11 +1,11 @@
-import React from 'react'
-import NavbarComponent from '../Components/Landing_components/navbar.component'
-import HeroSectionComponent from '../Components/Landing_components/hero-section.component'
-import FeaturesComponent from '../Components/Landing_components/features.component'
-import WhoWeAreComponent from '../Components/Landing_components/who-we-are.component'
-import HowItWorksComponent from '../Components/Landing_components/how-it-works.component'
-import FooterComponent from '../Components/Landing_components/footer.component'
-import TestimonialsComponent from '../Components/Landing_components/testimonials.component'
+import React from 'react';
+import HeroSectionComponent from '../Components/LandingComponents/hero-section.component';
+import FeaturesComponent from '../Components/LandingComponents/features.component';
+import WhoWeAreComponent from '../Components/LandingComponents/who-we-are.component';
+import HowItWorksComponent from '../Components/LandingComponents/how-it-works.component';
+import FooterComponent from '../Components/LandingComponents/footer.component';
+import TestimonialsComponent from '../Components/LandingComponents/testimonials.component';
+import NavbarComponent from '../Components/LandingComponents/Navbar';
 
 export default function Landing() {
     return (
@@ -18,5 +18,5 @@ export default function Landing() {
             <TestimonialsComponent />
             <FooterComponent />
         </>
-    )
+    );
 }
