@@ -6,16 +6,16 @@ export const ChatContext = createContext();
 
 export const ChatProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
-    const [typing, setTyping] = useState(false)
+    const [typing, setTyping] = useState(false);
     const data = localStorage.getItem('Medix_Chat');
-    const localMessages = data ? JSON.parse(data) : []
+    const localMessages = data ? JSON.parse(data) : [];
     const [messages, setMessages] = useState(localMessages);
     const [startedChat, setStartedChat] = useState(false);
     const [userInput, setUserInput] = useState('');
-    
+
     localStorage.setItem('Medix_Chat', JSON.stringify(messages));
     const updateUserInput = input => setUserInput(input);
-    
+
     const getLastMessage = async (data) => {
         return data?.data?.data?.[0];
     };
@@ -24,7 +24,7 @@ export const ChatProvider = ({ children }) => {
         setMessages((prevMessages) => [data, ...prevMessages]);
         setTyping(false);
     };
-  
+
     const getThreadMessages = async (id) => await axios.post(`${MEDIX_BASE_URL}/assistant/threads`, id);
 
     const getMedixChat = async (thread) => {
@@ -81,7 +81,7 @@ export const ChatProvider = ({ children }) => {
         ],
         id: id ?? 0
     });
-    
+
     const startNewchat = async (input) => {
         // clear local storage
         // talk to API
@@ -90,8 +90,8 @@ export const ChatProvider = ({ children }) => {
         if (chatInitInfo) {
             setMessages(oldMessages => [generateUserInput(input.prompt), ...oldMessages]);
             localStorage.setItem('thread_id', chatInitInfo);
-            setLoading(false)
-            getMedixChat(chatInitInfo)
+            setLoading(false);
+            getMedixChat(chatInitInfo);
         }
         // update threadMessages with my message
         // then call the threads endpoint to get ai response and update threadMessages with ai response
@@ -101,14 +101,14 @@ export const ChatProvider = ({ children }) => {
 
     const promptThread = async (data) => {
         setMessages(oldMessages => [generateUserInput(data.prompt), ...oldMessages]);
-        setLoading(false)
+        setLoading(false);
         // use the api to prompt the thread
         const chatInfo = await conversateWithMedix(data);
         console.log('Chat init Info', chatInfo);
         // extract the last message
         // include with the threadMessages[]
-        if (chatInfo.length > 0) {
-            getMedixChat(data.id)
+        if (chatInfo?.length > 0) {
+            getMedixChat(data.id);
         }
     };
 
@@ -119,7 +119,7 @@ export const ChatProvider = ({ children }) => {
     };
 
     const manageChatInteraction = (chat) => {
-        setLoading(true)
+        setLoading(true);
         // have state to track if a chat has started so it will call promptThread method instead of startNewChatconsole.log('Manage Chat Interaction');
         if (isConversationStarted()) {
             // prompt thread
