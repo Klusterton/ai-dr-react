@@ -17,13 +17,9 @@ export default function Manual({ hamburger, setHamburger }) {
                         </div>
                     </div>
                 </div>
-                <div className='flex-1 mid:mt-0 mt-20 mb-6'>
+                <div className='flex-1 mid:mt-0 my-6 w-full flex justify-center'>
                     <div className='h-full desktop:w-[894px] mids:w-[620px] w-full'>
-                        <div style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
-                            <iframe src="https://www.loom.com/embed/e9458abc167447418750375595082465?sid=d35a4ad4-2775-4470-91a3-d59b2d82ab0c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></iframe>
-                        </div>
-                        {/* <img src={ManualVideo} alt='video' className='rounded-lg cursor-pointer' /> */}
-                        {/* <Play /> */}
+                        <iframe className='rounded-lg w-full h-full' src="https://www.loom.com/embed/e9458abc167447418750375595082465?sid=d35a4ad4-2775-4470-91a3-d59b2d82ab0c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
