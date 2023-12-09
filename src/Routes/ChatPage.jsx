@@ -83,7 +83,8 @@ export default function ChatPage({ hamburger, setHamburger }) {
                         <div className='relative flex gap-6 h-full flex-1 items-stretch flex-col'>
                             {(!MedixData || MedixData?.length <= 0) && <Suggestions setChat={updateUserInput} />}
                             <div className='flex w-full items-center py-3 px-4 border-[0.5px] border-Dark_Grey rounded-[20px]'>
-                                <input
+                                <textarea
+                                    rows={1}
                                     value={userInput}
                                     onChange={(e =>
                                         updateUserInput(e?.target?.value)

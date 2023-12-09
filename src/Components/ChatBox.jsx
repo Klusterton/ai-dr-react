@@ -1,21 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useRef, useEffect } from 'react';
 import User from '../Assets/img/avatar.png';
 import AI from '../Assets/img/ai.png';
-import TypewriterComponent from 'typewriter-effect';
-import { ChatContext } from '../Context/ChatContext';
-
-const MakeChoice = () => {
-    return (
-        <div>
-            <h3 className='text-2xl'>Reload Chat?</h3>
-            <span>Do you want to load previous chat or start a new one</span>
-            <section className='flex gap-2'>
-                <button>Load Previous Chat</button>
-                <button className="bg-slate-700 text-white rounded-lg py-2 px-4">Start New Chat</button>
-            </section>
-        </div>
-    );
-};
 
 const YouChatBubble = ({ content }) => {
     return (
@@ -49,22 +34,18 @@ const AIChatBubble = ({ content }) => {
 
 export default function ChatBox({ typing, data }) {
     const medix = data?.slice().reverse();
+    const scrollRef = useRef(null);
     console.log({medix})
 
-    const isThereAThread = () => {
-        const threadId = localStorage.getItem('thread_id');
-
-        if (threadId) return true;
-        return false;
-    };
-
-
+    useEffect(() => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        }
+    }, [medix]);
 
     return (
-        <div className='h-full overflow-y-scroll flex flex-col gap-8 w-full mx-auto max-w-[53rem] pb-7 phone:pb-0 phone:pt-10'>
+        <div ref={scrollRef} className='h-full overflow-y-scroll flex flex-col gap-8 w-full mx-auto max-w-[53rem] pb-7 phone:pb-0 phone:pt-10'>
             <div className='flex flex-col gap-8 w-full h-full'>
-                {/* Only show this when there are threadMessages in local storage */}
-                {/* {isThereAThread() ? <MakeChoice /> : null} */}
                 {medix.map((message, id) => {
                     return (
                         <React.Fragment key={id}>
